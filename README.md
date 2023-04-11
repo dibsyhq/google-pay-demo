@@ -1,6 +1,6 @@
 # Sample Integration for Google Pay using Dibsy API
 
-This is a sample integration for Google Pay using Dibsy API. It is an Express server application that listens for Google Pay token requests and processes them using the Dibsy API.
+This is a sample integration for Google Pay using Dibsy API. It is an Express server application that listens for Google Pay token requests and processes them using the Dibsy API. For more details, refer to official documentation [here](https://dibsy.dev/docs/google-pay/overview).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Start the server by running npm start
 
 ## Usage
 
-Once the server is running, you can make a POST request to the /payments/googlepay/tokens endpoint with the following payload:
+The Google Pay payload to Dibsy API must be stringified in the below format.
 
 ```json
 {
@@ -37,7 +37,8 @@ Once the server is running, you can make a POST request to the /payments/googlep
 			"type": "PAYMENT_GATEWAY",
 			"token": "..."
 		},
-		"type": "CARD"
+		"type": "CARD",
+		"info": { "cardNetwork": "VISA", "cardDetails": "0024" }
 	}
 }
 ```
