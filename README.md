@@ -13,17 +13,16 @@ Before using this sample integration, you need to have the following:
 ## Installation
 
 To use this sample integration, follow these steps:
-
-## Clone this repository
-
+Clone this repository
 Run npm install to install the dependencies
 Create a .env file and add the following variables:
 
 ```shell
 PORT=4545
 DIBSY_API_SK=<your-dibsy-api-secret-key>
-Start the server by running npm start
 ```
+
+Start the server by running npm start
 
 ## Usage
 
