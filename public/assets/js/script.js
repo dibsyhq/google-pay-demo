@@ -15,8 +15,8 @@ const baseCardPaymentMethod = {
 const tokenizationSpecification = {
 	type: "PAYMENT_GATEWAY",
 	parameters: {
-		gateway: "verygoodsecurity",
-		gatewayMerchantId: "ACkXpaU1qFuSz9ukJaAqjzg5",
+		gateway: "xxx",
+		gatewayMerchantId: "xxx",
 	},
 };
 
@@ -37,8 +37,8 @@ function getGooglePaymentDataRequest() {
 	paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
 	paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
 	paymentDataRequest.merchantInfo = {
-		merchantId: "BCR2DN4TRTFIBKQB",
-		merchantName: "Rose and Rose",
+		merchantId: "xxx",
+		merchantName: "xxx",
 	};
 	return paymentDataRequest;
 }
