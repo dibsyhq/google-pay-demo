@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basic Example - Google Pay</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="./assets/css/styles.css" />
+		<script src="./assets/js/script.js"></script>
+		<script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
+	</head>
+	<body>
+		<form class="checkout">
+			<div class="checkout-header">
+			  <h1 class="checkout-title">
+				Checkout
+				<span class="checkout-price">QAR1</span>
+			  </h1>
+			</div>
+			<p>
+				<div id="container"></div>
+			</p>
+		  </form>
+	</body>
+</html>
