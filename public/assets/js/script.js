@@ -7,7 +7,7 @@ const baseRequest = {
 const baseCardPaymentMethod = {
 	type: "CARD",
 	parameters: {
-		allowedAuthMethods: ["CRYPTOGRAM_3DS"],
+		allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
 		allowedCardNetworks: ["MASTERCARD", "VISA"],
 	},
 };
@@ -15,8 +15,8 @@ const baseCardPaymentMethod = {
 const tokenizationSpecification = {
 	type: "PAYMENT_GATEWAY",
 	parameters: {
-		gateway: "xxx",
-		gatewayMerchantId: "xxx",
+		gateway: env.GATEWAY,
+		gatewayMerchantId: env.GATEWAY_MERCHANT_ID,
 	},
 };
 
@@ -37,8 +37,8 @@ function getGooglePaymentDataRequest() {
 	paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
 	paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
 	paymentDataRequest.merchantInfo = {
-		merchantId: "xxx",
-		merchantName: "xxx",
+		merchantId: env.MERCHANT_ID,
+		merchantName: env.MERCHANT_NAME,
 	};
 	return paymentDataRequest;
 }
@@ -46,7 +46,7 @@ function getGooglePaymentDataRequest() {
 function getGooglePaymentsClient() {
 	if (paymentsClient === null) {
 		paymentsClient = new google.payments.api.PaymentsClient({
-			environment: "PRODUCTION",
+			environment: env.ENVIRONMENT,
 		});
 	}
 	return paymentsClient;
@@ -116,5 +116,8 @@ async function processPayment(paymentData) {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify(paymentData),
-	});
+	})
+		.then(res => res.json());
+
+	console.log(response);
 }

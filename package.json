@@ -7,8 +7,11 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
+		"prestart": "npm run generate:env",
+		"predev": "npm run generate:env",
 		"start": "node server",
-		"dev": "nodemon server"
+		"dev": "nodemon server",
+		"generate:env": "node scripts/generateEnv.js"
 	},
 	"dependencies": {
 		"axios": "^0.21.1",
