@@ -1,9 +1,9 @@
 import axios from "axios";
-const API = process.env.DIBSY_API ?? 'https://api.dibsy.one/v2/payments'
+const API = process.env.DIBSY_API ?? 'https://api.dibsy.one'
 export const processGooglePayToken = async (req, res) => {
 	try {
 		const { paymentMethodData } = req.body;
-
+		console.log(paymentMethodData);
 		const options = {
 			method: "googlepay",
 			amount: {
