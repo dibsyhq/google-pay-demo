@@ -7,7 +7,8 @@ const baseRequest = {
 const baseCardPaymentMethod = {
   type: "CARD",
   parameters: {
-    allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+    // allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+    allowedAuthMethods: ["PAN_ONLY"],
     allowedCardNetworks: ["MASTERCARD", "VISA"],
   },
 };
@@ -105,6 +106,11 @@ function onGooglePaymentButtonClicked() {
     })
     .then(function (result) {
       console.log(result);
+      //if our result is a pending payment, then we need to redirect our customers to checkout link
+      if (result?._links?.checkout) {
+        window.location = result._links.checkout.href
+      }
+
     })
     .catch(function (err) {
       console.error(err);
